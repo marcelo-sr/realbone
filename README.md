@@ -37,14 +37,14 @@ realbone/
 │   ├── Config.in
 │   ├── external.mk
 │   ├── configs/
-│   │   └── bbb_defconfig        # Your project’s defconfig
+│   │   └── realbone_defconfig   # Your project’s defconfig
 │   ├── board/
 │   │   └── beaglebone/          # Board-specific files
 │   │       ├── post-build.sh
 │   │       ├── post-image.sh
 │   │       └── uEnv.txt         # If needed for U-Boot
 │   └── package/                 # Your custom packages (optional for now)
-├── output-bbb/                  # Output/build directory (created by buildroot)
+├── output/                      # Output/build directory (created by buildroot)
 └── README.md                    # Optional: document your setup
 ```
 
