@@ -1,9 +1,11 @@
 # realbone
 
 ## Table of Contents
-- [Password Manager](#password-manager)
+- [realbone](#realbone)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
+  - [Building](#building)
+  - [Customizing Buildroot](#customizing-buildroot)
   - [Project Structure](#project-structure)
   - [Contributing](#contributing)
   - [License](#license)
@@ -13,19 +15,26 @@
 
 Basic Beaglebone Board skeleton project using BR2_EXTERNAL buildroot structure.
 
-## Create output folder with .config
+## Building
 
 ```bash
 # from root folder
 rm -rf output
 mkdir output
 touch output/.br-external.mk
+make BR2_EXTERNAL=$PWD/external -C $PWD/buildroot O=$PWD/output realbone_defconfig # write output/.config
+cd output
+make
+```
+
+## Customizing Buildroot
+
+```bash
+# optional
 cd buildroot
 make beaglebone_defconfig                 # load beaglebone_defconfig to buildroot/.config
-make BR2_EXTERNAL=../external/ menuconfig #apply your custom changes to buildroot/.config
+make BR2_EXTERNAL=../external/ menuconfig # apply your custom changes to buildroot/.config
 make savedefconfig BR2_DEFCONFIG=../external/configs/realbone_defconfig  #save minimal file to external/configs/realbone_defconfig
-cd ..
-make BR2_EXTERNAL=$PWD/external -C $PWD/buildroot O=$PWD/output realbone_defconfig # write output/.config
 ```
 
 ## Project Structure
